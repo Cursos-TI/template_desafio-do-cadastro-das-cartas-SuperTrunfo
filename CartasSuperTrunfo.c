@@ -16,8 +16,8 @@ float pib;
 int numero_de_pontos_turisticos;
 
   // Área para entrada de dados
-printf("Bem vindo ao jogo de SuperTrunfo!\nVamos cadastrar os dados das cidades, para isso siga as estapas descritas abaixo.\n");
-printf("Informe o número da carta\n");
+printf("Bem vindo ao jogo de SuperTrunfo!\nNessa primeira etapa, vamos cadastrar os dados das cidades, para isso siga as estapas descritas abaixo.\n");
+printf("\nInforme o número da carta\n");
 scanf("%d",&carta);
 
 printf("Cada estado será representado, por uma letra entre A e H\nDigite uma letra entre A e H\n");
@@ -28,7 +28,7 @@ printf("Digite o código da cidade a ser cadastrada\n");
 scanf("%s",codigo_da_carta);
 
 printf("Digite o nome da cidade\n");
-scanf("%s",nome_cidade);
+scanf(" %s ",nome_cidade);
 
 printf("Digite o tamanho da população da cidade (formato número inteiro)\n");
 scanf("%d",&populacao);
