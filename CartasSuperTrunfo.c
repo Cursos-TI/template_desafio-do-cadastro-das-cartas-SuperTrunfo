@@ -34,15 +34,13 @@ printf("Digite o tamanho da população da cidade (formato número inteiro)\n");
 scanf("%d",&populacao);
 
 printf("Digite o tamanho da area da cidade (formato número decimal)\n");
-scanf("%f",area);
+scanf("%f",&area);
 
 printf("Digite o PIB (formato número decimal)\n");
-scanf("%f",pib);
+scanf("%f",&pib);
 
 printf("Digite a quantidade de pontos turisticos (formato número inteiro))\n");
-scanf("%d",numero_de_pontos_turisticos);
-
-
+scanf("%d",&numero_de_pontos_turisticos);
   // Área para exibição dos dados da cidade
 
 printf("Carta: %d,carta\n");
