@@ -168,13 +168,12 @@ int main (){
 
 /*DADOS USADOS COMO MODELO PARA GERAÇÃO DAS CARTAS
 
-Carta 1
 Estado: Ceara
 Código da carta: C01
 Nome da cidade: Fortaleza
 População: 2428678
-Área em Km²: 313.80 Km²
-PIB: 73.80 Bilhões de Reais
+Área em Km²: 312353
+PIB: 73.800.000.000 Bilhões de Reais
 Numero de Pontos Turisticos: 15
 
 Carta 2
@@ -182,8 +181,8 @@ Estado: Bahia
 Código da carta: B01
 Nome da cidade: Salvador
 População: 2417678
-Área em Km²: 693.80 km²
-PIB: 62.95 Bilhões de Reais
+Área em Km²: 693800 km²
+PIB: 62.954.000.000 Bilhões de Reais
 Numero de Pontos Turisticos: 20
 
 Carta 3
@@ -191,8 +190,8 @@ Estado: Pernambuco
 Código da carta: A01
 Nome da cidade: Recife
 População: 9562007
-Área em Km²: 98.312 km²
-PIB: 54.970 Bilhões de Reais
+Área em Km²: 98312 km²
+PIB: 54.970.000.000 Bilhões de Reais
 Numero de Pontos Turisticos: 15
 
 Carta 4
@@ -200,9 +199,10 @@ Estado: Alagoas
 Código da carta: D01
 Nome da cidade: Maceió
 População: 957916
-Área em Km²: 509.6 km²
-PIB: 27.484 Bilhões de Reais
+Área em Km²: 509600 km²
+PIB: 27.484.000.000 Bilhões de Reais
 Numero de Pontos Turisticos: 20*/
+
 
     return 0;
 
