@@ -3,8 +3,8 @@
 int main (){
 
     char codigo_da_carta[4],nome_da_cidade[30],estado[50];
-    int populacao, numero_de_pontos_turisticos;
-    float area_em_km, pib_cidade;
+    int numero_de_pontos_turisticos;
+    float area_em_km, pib_cidade, densidade_populacional, populacao, pib_percapita;
     
         printf ("\nVamos a Primeira Carta do Super Trunfo!\n");
 
@@ -18,7 +18,7 @@ int main (){
         scanf ("%s", &nome_da_cidade);
 
         printf ("Digite a população: \n");
-        scanf ("%d", &populacao);
+        scanf ("%f", &populacao);
 
         printf ("Digite a área da cidade Km²:\n");
         scanf ("%f", &area_em_km);
@@ -29,9 +29,12 @@ int main (){
         printf ("Digite o número de pontos turisticos da cidade:\n");
         scanf ("%d", &numero_de_pontos_turisticos);
 
+        densidade_populacional = populacao / area_em_km;
+        pib_percapita = pib_cidade / populacao;
+
     char codigo_da_carta2[4],nome_da_cidade2[30],estado2[50];
-    int populacao2, numero_de_pontos_turisticos2;
-    float area_em_km2, pib_cidade2;
+    int numero_de_pontos_turisticos2;
+    float area_em_km2, pib_cidade2, densidade_populacional2, populacao2, pib_percapita2;
 
         printf ("\nVamos a Segunda Carta do Super Trunfo!\n");
 
@@ -45,7 +48,7 @@ int main (){
         scanf ("%s", &nome_da_cidade2);
 
         printf ("Digite a população: \n");
-        scanf ("%d", &populacao2);
+        scanf ("%f", &populacao2);
 
         printf ("Digite a área da cidade Km²:\n");
         scanf ("%f", &area_em_km2);
@@ -56,9 +59,12 @@ int main (){
         printf ("Digite o número de pontos turisticos da cidade:\n");
         scanf ("%d", &numero_de_pontos_turisticos2);
 
+        densidade_populacional2 = populacao2 / area_em_km2;
+        pib_percapita2 = pib_cidade2 / populacao2;
+
     char codigo_da_carta3[4],nome_da_cidade3[30],estado3[50];
-    int populacao3, numero_de_pontos_turisticos3;
-    float area_em_km3, pib_cidade3;
+    int numero_de_pontos_turisticos3;
+    float area_em_km3, pib_cidade3, densidade_populacional3, populacao3, pib_percapita3;
 
         printf ("\nVamos a Terceira Carta do Super Trunfo!\n");
 
@@ -72,7 +78,7 @@ int main (){
         scanf ("%s", &nome_da_cidade3);
 
         printf ("Digite a população: \n");
-        scanf ("%d", &populacao3);
+        scanf ("%f", &populacao3);
 
         printf ("Digite a área da cidade Km²:\n");
         scanf ("%f", &area_em_km3);
@@ -83,9 +89,12 @@ int main (){
         printf ("Digite o número de pontos turisticos da cidade:\n");
         scanf ("%d", &numero_de_pontos_turisticos3);
 
+        densidade_populacional3 = populacao3 / area_em_km3;
+        pib_percapita3 = pib_cidade3 / populacao3;
+
     char codigo_da_carta4[4],nome_da_cidade4[30],estado4[50];
-    int populacao4, numero_de_pontos_turisticos4;
-    float area_em_km4, pib_cidade4;
+    int numero_de_pontos_turisticos4;
+    float area_em_km4, pib_cidade4, densidade_populacional4, populacao4, pib_percapita4;
 
         printf ("\nVamos a Quarta Carta do Super Trunfo!\n");
 
@@ -99,7 +108,7 @@ int main (){
         scanf ("%s", &nome_da_cidade4);
 
         printf ("Digite a população: \n");
-        scanf ("%d", &populacao4);
+        scanf ("%f", &populacao4);
 
         printf ("Digite a área da cidade Km²:\n");
         scanf ("%f", &area_em_km4);
@@ -110,41 +119,52 @@ int main (){
         printf ("Digite o número de pontos turisticos da cidade:\n");
         scanf ("%d", &numero_de_pontos_turisticos4);
 
+        densidade_populacional4 = populacao4 / area_em_km4;
+        pib_percapita4 = pib_cidade4 / populacao4;
+
     printf ("\nCarta 1 \n");
         printf ("Estado: %s \n", estado);
         printf ("Código da carta: %s \n", codigo_da_carta);
         printf ("Nome da cidade: %s \n", nome_da_cidade);
-        printf ("População: %d \n", populacao);
+        printf ("População: %f \n", populacao);
         printf ("Área em Km²: %.2f Km² \n", area_em_km);
         printf ("PIB: %.2f Bilhões de Reais \n", pib_cidade);
-        printf ("Numero de Pontos Turisticos: %d \n\n", numero_de_pontos_turisticos);
+        printf ("Numero de Pontos Turisticos: %d \n", numero_de_pontos_turisticos);
+        printf ("Densidade Populacional: %f hab/Km² \n", densidade_populacional);
+        printf ("PIB per Capita: %.2f reais\n\n", pib_percapita);
 
     printf ("Carta 2 \n");
         printf ("Estado: %s \n", estado2);
         printf ("Código da carta: %s \n", codigo_da_carta2);
         printf ("Nome da cidade: %s \n", nome_da_cidade2);
-        printf ("População: %d \n", populacao2);
+        printf ("População: %f \n", populacao2);
         printf ("Área em Km²: %.2f km² \n", area_em_km2);
         printf ("PIB: %.2f Bilhões de Reais \n", pib_cidade2);
-        printf ("Numero de Pontos Turisticos: %d \n\n", numero_de_pontos_turisticos2);
+        printf ("Numero de Pontos Turisticos: %d \n", numero_de_pontos_turisticos2);
+        printf ("Densidade Populacional: %f hab/Km² \n", densidade_populacional2);
+        printf ("PIB per Capita: %.2f reais\n\n", pib_percapita2);
 
     printf ("Carta 3 \n");
         printf ("Estado: %s \n", estado3);
         printf ("Código da carta: %s \n", codigo_da_carta3);
         printf ("Nome da cidade: %s \n", nome_da_cidade3);
-        printf ("População: %d \n", populacao3);
+        printf ("População: %f \n", populacao3);
         printf ("Área em Km²: %.2f km² \n", area_em_km3);
         printf ("PIB: %.2f Bilhões de Reais \n", pib_cidade3);
-        printf ("Numero de Pontos Turisticos: %d \n\n", numero_de_pontos_turisticos3);
+        printf ("Numero de Pontos Turisticos: %d \n", numero_de_pontos_turisticos3);
+        printf ("Densidade Populacional: %f hab/Km² \n", densidade_populacional3);
+        printf ("PIB per Capita: %.2f reais\n\n", pib_percapita3);
 
     printf ("Carta 4 \n");
         printf ("Estado: %s \n", estado4);
         printf ("Código da carta: %s \n", codigo_da_carta4);
         printf ("Nome da cidade: %s \n", nome_da_cidade4);
-        printf ("População: %d \n", populacao4);
+        printf ("População: %f \n", populacao4);
         printf ("Área em Km²: %.2f km² \n", area_em_km4);
         printf ("PIB: %.2f Bilhões de Reais \n", pib_cidade4);
-        printf ("Numero de Pontos Turisticos: %d \n\n", numero_de_pontos_turisticos4);
+        printf ("Numero de Pontos Turisticos: %d \n", numero_de_pontos_turisticos4);
+        printf ("Densidade Populacional: %f hab/Km² \n", densidade_populacional4);
+        printf ("PIB per Capita: %.2f reais\n\n", pib_percapita4);
 
 /*DADOS USADOS COMO MODELO PARA GERAÇÃO DAS CARTAS
 
