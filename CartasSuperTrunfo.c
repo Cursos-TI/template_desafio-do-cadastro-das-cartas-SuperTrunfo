@@ -10,6 +10,7 @@ int main() {
   // Área para entrada de dados
 
   // Área para exibição dos dados da cidade
+  printf("Desafio Super Trunfo - Países\n");
 
 return 0;
 } 
