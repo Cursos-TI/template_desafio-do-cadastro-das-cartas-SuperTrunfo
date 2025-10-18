@@ -83,7 +83,7 @@ int main() {
   printf("Número de Pontos Turísticos: %d\n\n\n", numero_pt_2);
 
   printf("Desafio Super Trunfo - Países\n");
-  print("commit 1 - Cadastro das cartas\n");
+  print("commit 02 - Cadastro das cartas\n");
 
 return 0;
 } 
