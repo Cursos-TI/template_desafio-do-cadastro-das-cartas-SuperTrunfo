@@ -84,6 +84,5 @@ int main() {
 
   printf("Desafio Super Trunfo - Países\n");
   print("commit 02 - Cadastro das cartas\n");
-
 return 0;
 } 
