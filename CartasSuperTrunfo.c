@@ -80,9 +80,9 @@ int main() {
   printf("Populacao: %d\n", populacao_2);
   printf("Area: %.2f ㎢\n", area_2);
   printf("PIB: %.2f bilhoes de reais\n", pib_2);
-  printf("Número de Pontos Turísticos: %d\n\n\n", numero_pt_2);
+  printf("Número de Pontos Turísticos: %d\n\n", numero_pt_2);
 
-  printf("Desafio Super Trunfo - Países\n");
-  print("commit 02 - Cadastro das cartas\n");
-return 0;
+  printf("Desafio Super Trunfo - Países\n\n");
+
+  return 0;
 } 
