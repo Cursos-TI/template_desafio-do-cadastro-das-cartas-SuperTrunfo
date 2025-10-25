@@ -1,0 +1,140 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define N 8 // tamanho do tabuleiro 8x8
+
+// converte coordenadas numéricas para notação de xadrez (a1, e4 etc.)
+void posicao(int x, int y, char *saida) {
+    saida[0] = 'a' + x;
+    saida[1] = '1' + y;
+    saida[2] = '\0';
+}
+
+// verifica se a posição está dentro do tabuleiro
+int dentro_do_tabuleiro(int x, int y) {
+    return x >= 0 && x < N && y >= 0 && y < N;
+}
+
+/* ===========================================================
+   1️⃣ ESTRUTURAS DE REPETIÇÃO SIMPLES
+   Torre -> usa FOR + WHILE
+   Bispo -> usa DO-WHILE
+   Rainha -> combina ambos
+   ===========================================================*/
+
+// TORRE: movimento horizontal e vertical
+void torre(int sx, int sy) {
+    printf("\n--- Movimentos da TORRE ---\n");
+    int dx[] = {1, -1, 0, 0};
+    int dy[] = {0, 0, 1, -1};
+
+    for (int dir = 0; dir < 4; dir++) { // repete direções
+        int x = sx + dx[dir], y = sy + dy[dir];
+        while (dentro_do_tabuleiro(x, y)) { // percorre casas até o fim
+            char p[3];
+            posicao(x, y, p);
+            printf("%s ", p);
+            x += dx[dir];
+            y += dy[dir];
+        }
+    }
+    printf("\n");
+}
+
+// BISPO: movimento diagonal com DO-WHILE
+void bispo(int sx, int sy) {
+    printf("\n--- Movimentos do BISPO ---\n");
+    int dx[] = {1, 1, -1, -1};
+    int dy[] = {1, -1, 1, -1};
+
+    for (int dir = 0; dir < 4; dir++) {
+        int x = sx + dx[dir];
+        int y = sy + dy[dir];
+        if (!dentro_do_tabuleiro(x, y)) continue;
+
+        do {
+            char p[3];
+            posicao(x, y, p);
+            printf("%s ", p);
+            x += dx[dir];
+            y += dy[dir];
+        } while (dentro_do_tabuleiro(x, y));
+    }
+    printf("\n");
+}
+
+/* ===========================================================
+   2️⃣ LOOPS ANINHADOS
+   Cavalo -> movimento em "L" (2 em uma direção, 1 na outra)
+   ===========================================================*/
+void cavalo(int sx, int sy) {
+    printf("\n--- Movimentos do CAVALO ---\n");
+    int delta[] = {1, 2, -1, -2};
+
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            int dx = delta[i];
+            int dy = delta[j];
+            // condição do movimento em L: |dx| != |dy| e |dx| + |dy| == 3
+            int adx = dx < 0 ? -dx : dx;
+            int ady = dy < 0 ? -dy : dy;
+            if (adx != ady && adx + ady == 3) {
+                int nx = sx + dx, ny = sy + dy;
+                if (dentro_do_tabuleiro(nx, ny)) {
+                    char p[3];
+                    posicao(nx, ny, p);
+                    printf("%s ", p);
+                }
+            }
+        }
+    }
+    printf("\n");
+}
+
+/* ===========================================================
+   3️⃣ RECURSIVIDADE E MÚLTIPLAS CONDIÇÕES
+   Rainha -> combinação de Torre + Bispo com recursividade
+   ===========================================================*/
+void mover_recursivo(int x, int y, int dx, int dy) {
+    if (!dentro_do_tabuleiro(x, y)) return;
+
+    char p[3];
+    posicao(x, y, p);
+    printf("%s ", p);
+
+    // múltiplas condições para decidir se continua
+    if (dx != 0 || dy != 0) {
+        mover_recursivo(x + dx, y + dy, dx, dy);
+    }
+}
+
+void rainha(int sx, int sy) {
+    printf("\n--- Movimentos da RAINHA ---\n");
+    int dx[] = {1, -1, 0, 0, 1, 1, -1, -1};
+    int dy[] = {0, 0, 1, -1, 1, -1, 1, -1};
+
+    for (int dir = 0; dir < 8; dir++) {
+        mover_recursivo(sx + dx[dir], sy + dy[dir], dx[dir], dy[dir]);
+    }
+    printf("\n");
+}
+
+/* ===========================================================
+   Função principal
+   ===========================================================*/
+int main() {
+    // posição de teste: e4
+    int sx = 4; // 'e' = 4
+    int sy = 3; // '4' = 3
+
+    printf("=== SIMULADOR DE MOVIMENTOS DE XADREZ ===\n");
+    printf("Posição inicial: e4\n");
+
+    torre(sx, sy);   // for + while
+    bispo(sx, sy);   // do-while
+    rainha(sx, sy);  // recursividade
+    cavalo(sx, sy);  // loops aninhados
+
+    printf("\nSimulação concluída!\n");
+    return 0;
+}
