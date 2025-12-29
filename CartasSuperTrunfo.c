@@ -30,7 +30,7 @@ int main() {
     scanf("%f", &pib1);
 
     printf("Digite o número de pontos turísticos da cidade: \n");
-    scanf("%i", &turismo1);
+    scanf("%i", &turismo1)
 
     densidade1 = (float)(populacao1 / area1);
     ppc1 = (float)(pib1 / populacao1);
