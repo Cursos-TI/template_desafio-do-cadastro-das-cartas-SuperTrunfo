@@ -12,7 +12,7 @@ int main() {
   
   // Área para entrada de dados
     printf("Insira os dados de duas cartas: \nCarta 1: \nDigite uma letra (entre A e H) que representa um dos oito estados: \nA: Ceará \nB: Pernambuco \nC: Goiás \nD: Rondônia \nE: Bahia \nF: Paraná \nG: Amazonas \n");
-    scanf("%c", &estado1);
+    scanf("%s", &estado1);
     
     printf("Digite o Código da Carta (a letra do estado junto com o número entre 01 e 04): \n");
     scanf("%s", &codigo1);
@@ -36,7 +36,7 @@ int main() {
     ppc1 = (float)(pib1 / populacao1);
 
     printf("Carta 2: \nDigite uma letra (entre A e H) que representa um dos oito estados: \nA: Ceará \nB: Pernambuco \nC: Goiás \nD: Rondônia \nE: Bahia \nF: Paraná \nG: Amazonas \n");
-    scanf("%c", &estado2);
+    scanf("%s", &estado2);
     
     printf("Digite o Código da Carta (a letra do estado junto com o número entre 01 e 04): \n");
     scanf("%s", &codigo2);
@@ -60,7 +60,7 @@ int main() {
     ppc2 = (float)(pib2 / populacao2);
 
   // Área para exibição dos dados da cidade
-    printf("Carta1: \nEstado: %c \n", estado1);
+    printf("Carta1: \nEstado: %s \n", estado1);
     printf("Código da Carta: %s \n", codigo1);
     printf("Nome da Cidade: %s \n", cidade1);
     printf("População: %i \n", populacao1);
@@ -70,7 +70,7 @@ int main() {
     printf("PIB per Capita: R$ %.2f reais \n", ppc1);
     printf("Número de pontos turísticos: %i \n", turismo1);
 
-    printf("Carta2: \nEstado: %c \n", estado2);
+    printf("Carta2: \nEstado: %s \n", estado2);
     printf("Código da Carta: %s \n", codigo2);
     printf("Nome da Cidade: %s \n", cidade2);
     printf("População: %i \n", populacao2);
