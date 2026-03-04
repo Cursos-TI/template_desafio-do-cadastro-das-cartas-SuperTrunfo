@@ -57,7 +57,7 @@ int main() {
 
     printf("\n");
     printf(" Cidade %s01 \n nome:%s \n habitantes:%d \n PIB:%f",cidade,nome,habitantes,pib);
-    printf("\nQtd.Pontos Turisticos:%d \n Area da cidade:%f \n densidade populacional:%d \n PIB per capita:%f /n",pontos_turisticos, area,densidade_populacional,pib_capita);
+    printf("\nQtd.Pontos Turisticos:%d \n Area da cidade:%f \n densidade populacional:%d \n PIB per capita:%f \n",pontos_turisticos, area,densidade_populacional,pib_capita);
     printf("\n");
     printf("\nCidade %s02 \n nome:%s \n habitantes:%d \n PIB:%f \n Densidade populacional:%d \n PIB per capita:%f \n",cidade_2,nome_2,habitantes_2,pib_2,densidade_populacional2,pib_capita2);
     printf("\nQtd.Pontos Turisticos:%d \n Area da cidade:%f",pontos_turisticos_2, area_2);
