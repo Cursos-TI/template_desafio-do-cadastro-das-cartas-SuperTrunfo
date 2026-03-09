@@ -5,19 +5,20 @@
 // Objetivo: No nível novato você deve criar as cartas representando as cidades utilizando scanf para entrada de dados e printf para exibir as informações.
 
 int main() {
-    char estado[10];
-    char codigo[10];
+    char estado[5];
+    char codigo[5];
     char cidade[10];
     int populacao;
     float area;
     float pib;
     int pontosturisticos;
-  
+    float DensidadePopulacional; 
+    float PIBperCapita;
 
   // Área para entrada de dados
   printf("Carta 1\n");
 
-  printf("Estado: ");
+  printf("Estado: "); 
   scanf("%s", &estado);
 
   printf("Código: ");
@@ -38,7 +39,14 @@ int main() {
   printf("Número de Pontos Turísticos: ");
   scanf("%d", &pontosturisticos);
 
+  DensidadePopulacional = populacao / area;
+  PIBperCapita = pib / populacao;
+
+  printf("Densidade Populacional: %f\n", DensidadePopulacional);
+  printf("PIB per Capita: %f\n", PIBperCapita);
   
+  printf ("\n");
+
   printf("Carta 2\n");
 
   printf("Estado: ");
@@ -62,8 +70,13 @@ int main() {
   printf("Número de Pontos Turísticos: ");
   scanf("%d", &pontosturisticos);
 
+  DensidadePopulacional = populacao / area;
+  PIBperCapita = pib / populacao;
 
-  
+  printf("Densidade Populacional: %f\n", DensidadePopulacional);
+  printf("PIB per Capita: %f\n", PIBperCapita);
+
+  printf ("\n\n");
 
   // Área para exibição dos dados da cidade
   printf("Carta 1\n");
@@ -74,6 +87,10 @@ int main() {
   printf("Área: %f\n", area);
   printf("PIB: %f\n", pib);
   printf("Número de Pontos Turísticos: %d\n", pontosturisticos);
+  printf("Densidade Populacional: %f\n", DensidadePopulacional);
+  printf("PIB per Capita: %f\n", PIBperCapita);
+
+  printf ("\n");
 
   printf("Carta 2\n");
   printf("Estado: %s\n", estado);
@@ -83,9 +100,9 @@ int main() {
   printf("Área: %f\n", area);
   printf("PIB: %f\n", pib);
   printf("Número de Pontos Turísticos: %d\n", pontosturisticos);
-
+  printf("Densidade Populacional: %f\n", DensidadePopulacional);
+  printf("PIB per Capita: %f\n", PIBperCapita);
 
   return 0;
 
 } 
- 
