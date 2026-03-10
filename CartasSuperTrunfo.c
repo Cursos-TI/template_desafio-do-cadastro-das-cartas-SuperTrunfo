@@ -10,6 +10,7 @@ int main() {
     float area = 1583.0;
     long long int pib = 516362292;
     int pontos = 27;
+    int respop= populacao > populacao2;
 
     // CARTA 2
     char estado2[20] = "Pernambuco";
@@ -37,6 +38,8 @@ int main() {
     printf("Area: %f km²\n", area2);
     printf("PIB: %lld\n", pib2);
     printf("Pontos: %d\n", pontos2);
+
+    print("O resultado da entre as populações é %d\n:", respop);
 
     return 0;
 }
