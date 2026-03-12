@@ -6,13 +6,13 @@
 
 int main() {
   //variáveis para a carta 1
-  char estado1;
-  char codigo1[4];
-  char nomeCidade1[50];
-  unsigned long int populacao1;
-  float area1, pib1;
-  int pontosTuristicos1;
-  float densidade1, pibPerCapita1, superPoder1;
+    char estado1;
+    char codigo1[4];
+    char nomeCidade1[50];
+    unsigned long int populacao1;
+    float area1, pib1;
+    int pontosTuristicos1;
+    float densidade1, pibPerCapita1, superPoder1;
 
   // Variáveis para a Carta 2
     char estado2;
