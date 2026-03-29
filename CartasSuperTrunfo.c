@@ -62,7 +62,7 @@ int main() {
   printf("\nPIB: %f bilhões de reais",PIB);
   printf("\nPontos Turisticos: %d",pontosTuristico);
   printf("\nDensidade Populacional: %.2f hab/km²",densidade);
-  printf("\nPIB per Capita: %.2f reais",PIBCapita);
+  printf("\nPIB per Capita: R$%.2f reais",PIBCapita);
 
   // Área para CARTA 02 exibição dos dados da cidade
 
@@ -75,17 +75,101 @@ int main() {
   printf("\nPIB: %f bilhões de reais",PIB2);
   printf("\nPontos Turisticos: %d",pontosTuristico2);
   printf("\nDensidade Populacional: %.2f hab/km²",densidade2);
-  printf("\nPIB per Capita: %.2f reais",PIBCapita2);
+  printf("\nPIB per Capita: R$%.2f reais",PIBCapita2);
 
-  // Super poder game entrace
 
-  printf("\n\nPopulacao: carta01 venceu ? %d",population > population2);
-  printf("\nArea: carta01 venceu ?%d", areaKM > areaKM2);
-  printf("\nPIB: carta01 venceu ?%d", PIB > PIB2);
-  printf("\nPontos Turisticos: carta01 venceu ?%d", pontosTuristico > pontosTuristico2);
-  printf("\nDensidade Populacional:  carta01 venceu ?%d",densidade<densidade2);
-  printf("\nPIB per Capita: carta01 venceu ? %d ", PIBCapita > PIBCapita2);
-  printf("\nSuperPoder: carta01 venceu ? %d", superPoderA > superPoderB);
+// INCLUINDO LOGICA IF - ELSE
 
-return 0;
+if (population > population2)
+{
+  printf("\n\nPOPULACAO:");
+  printf("\nCARTA 01 (%s): %lu \n",cidade,population);
+  printf("CARTA 02 (%s): %lu \n", cidade2,population2);
+  printf("CARTA 01 (%s) VENCEU!",cidade);
+}else{
+  printf("\n\nPOPULACAO:");
+  printf("\nCARTA 01 (%s): %lu \n",cidade,population);
+  printf("CARTA 02 (%s): %lu \n", cidade2,population2);
+  printf("CARTA 02 (%s) VENCEU!",cidade2);
+}
+
+if (areaKM > areaKM2)
+{
+  printf("\n\nAREA KM:");
+  printf("\nCARTA 01 (%s): %f \n",cidade,areaKM);
+  printf("CARTA 02 (%s): %f \n", cidade2,areaKM2);
+  printf("CARTA 01 (%s) VENCEU!",cidade);
+}else{
+  printf("\n\nAREA KM:");
+  printf("\nCARTA 01 (%s): %f \n",cidade,areaKM);
+  printf("CARTA 02 (%s): %f \n", cidade2,areaKM2);
+  printf("CARTA 02 (%s) VENCEU!",cidade2);
+}
+
+if (PIB > PIB2)
+{
+  printf("\n\nPIB:");
+  printf("\nCARTA 01 (%s): %f \n",cidade,PIB);
+  printf("CARTA 02 (%s): %f \n", cidade2,PIB2);
+  printf("CARTA 01 (%s) VENCEU!",cidade);
+}else{
+  printf("\n\nPIB:");
+  printf("\nCARTA 01 (%s): %f \n",cidade,PIB);
+  printf("CARTA 02 (%s): %f \n", cidade2,PIB2);
+  printf("CARTA 02 (%s) VENCEU!",cidade2);
+}
+
+if (pontosTuristico > pontosTuristico2)
+{
+  printf("\n\nPONTOS TURISTICOS:");
+  printf("\nCARTA 01 (%s): %d \n",cidade,pontosTuristico);
+  printf("CARTA 02 (%s): %d \n", cidade2,pontosTuristico2);
+  printf("CARTA 01 (%s) VENCEU!",cidade);
+}else{
+  printf("\n\nPONTOS TURISTICOS:");
+  printf("\nCARTA 01 (%s): %d \n",cidade,pontosTuristico);
+  printf("CARTA 02 (%s): %d \n", cidade2,pontosTuristico2);
+  printf("CARTA 02 (%s) VENCEU!",cidade2);
+}
+
+if (densidade < densidade2)
+{
+  printf("\n\nDENSIDADE:");
+  printf("\nCARTA 01 (%s): %f \n",cidade,densidade);
+  printf("CARTA 02 (%s): %f \n", cidade2,densidade2);
+  printf("CARTA 01 (%s) VENCEU!",cidade);
+}else{
+  printf("\n\nDENSIDADE:");
+  printf("\nCARTA 01 (%s): %f \n",cidade,densidade);
+  printf("CARTA 02 (%s): %f \n", cidade2,densidade2);
+  printf("CARTA 02 (%s) VENCEU!",cidade2);
+}
+
+if (PIBCapita > PIBCapita2)
+{
+  printf("\n\nPIB PER CAPITA:");
+  printf("\nCARTA 01 (%s): %f \n",cidade,PIBCapita);
+  printf("CARTA 02 (%s): %f \n", cidade2,PIBCapita2);
+  printf("CARTA 01 (%s) VENCEU!",cidade);
+}else{
+  printf("\n\nPIB PER CAPITA:");
+  printf("\nCARTA 01 (%s): %f \n",cidade,PIBCapita);
+  printf("CARTA 02 (%s): %f \n", cidade2,PIBCapita2);
+  printf("CARTA 02 (%s) VENCEU!",cidade2);
+}
+
+if (superPoderA > superPoderB)
+{
+  printf("\n\nSUPER POWER:");
+  printf("\nCARTA 01 (%s): %f \n",cidade,superPoderA);
+  printf("CARTA 02 (%s): %f \n", cidade2,superPoderB);
+  printf("CARTA 01 (%s) VENCEU!",cidade);
+}else{
+  printf("\n\nSUPER POWER:");
+  printf("\nCARTA 01 (%s): %f \n",cidade,superPoderA);
+  printf("CARTA 02 (%s): %f \n", cidade2,superPoderB);
+  printf("CARTA 02 (%s) VENCEU!",cidade2);
+}
+
+
 } 
