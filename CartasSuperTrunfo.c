@@ -10,8 +10,8 @@ int main() {
   int pontosturisticos;
   float pib;
   float area;
-  char cidade[10];
-  char codigo[4];
+  char cidade[30];
+  char codigo[6];
   char estado[2];
 
   printf("digite o codigo da sua carta: \n");
