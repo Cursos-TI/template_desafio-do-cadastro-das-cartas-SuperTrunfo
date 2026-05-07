@@ -59,7 +59,7 @@ int main() {
   populacaodensidade1 = ( população1 + area1) / 2;
   pibcapital1 = ( população1 + pib1) / 2;
 
-  printf("**Digite os dados da segunda carta\n**");
+  printf("**Digite os dados da segunda carta**\n");
 
   printf("digite o codigo da sua carta: \n");
   scanf("%s", &codigo2);
