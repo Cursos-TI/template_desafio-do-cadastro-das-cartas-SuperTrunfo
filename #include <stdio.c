@@ -11,9 +11,9 @@ int main(){
     int numero1, numero2;
     int soma, subtracao, multiplicacao, divisao;
 
-     printf("Entre com o numero 1: /n ");
+     printf("Entre com o numero 1: \n");
      scanf("%d", &numero1);
-     printf("Entre com o numero 2: /n ");
+     printf("Entre com o numero 2: \n");
      scanf("%d", &numero2);
      // operção soma 
     soma = numero1 + numero2;
