@@ -8,6 +8,8 @@ int main() {
 
   int população;
   int pontosturisticos;
+  float pibcapital;
+  float populacaodensidade;
   float pib;
   float area;
   char cidade[30];
@@ -42,13 +44,20 @@ int main() {
   scanf("%f", &area);
   printf("sua area é: %.f\n", area);
 
+  populacaodensidade = ( população + area) / 2;
+  pibcapital = ( população + pib) / 2;
+
+  printf("*** Carta super trunfo ***\n");
+
   printf("Estado: %s\n", estado);
   printf("Codigo: %s\n", codigo);
   printf("Cidade: %s\n", cidade);
   printf("População: %d\n", população);
   printf("Pontosturisticos: %i\n", pontosturisticos);
-  printf("Pib: %.f\n", pib);
-  printf("Area KM²: %.f\n", area);
+  printf("Pib: %.2f\n", pib);
+  printf("capital: %.2f\n", pibcapital);
+  printf("Area KM²: %.2f\n", area);
+  printf("Densidade Populacional: %.2f\n", populacaodensidade);
   
 
 return 0;
