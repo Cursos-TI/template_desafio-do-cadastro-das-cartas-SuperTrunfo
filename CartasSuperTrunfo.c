@@ -33,7 +33,7 @@ int main() {
   printf("\ndigite o codigo da sua carta: ");
   scanf("%s", &codigo1);
 
-  printf("\ndigite o nome do seu estado: ");
+  printf("\ndigite o nome do seu estado A-Z: ");
   scanf("%s", &estado1);
 
   printf("\ndigite o nome da sua cidade: ");
@@ -59,7 +59,7 @@ int main() {
   printf("\ndigite o codigo da sua carta: ");
   scanf("%s", &codigo2);
 
-  printf("\ndigite o nome do seu estado: ");
+  printf("\ndigite o nome do seu estado A-Z: ");
   scanf("%s", &estado2);
 
   printf("\ndigite o nome da sua cidade: ");
