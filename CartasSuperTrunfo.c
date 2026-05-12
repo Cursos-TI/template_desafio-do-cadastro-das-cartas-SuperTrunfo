@@ -26,6 +26,8 @@ int main() {
   char codigo2[6];
   char estado2[2];
 
+  int resultado1, resultado2, resultado3, resultado4, resultado5, resultado6, resultado7;
+
   printf("**Digite os dados da primeira carta**\n");
   
   printf("digite o codigo da sua carta: \n");
@@ -117,6 +119,31 @@ int main() {
   printf("Capital: %.2f Bilhões\n", pibcapital2);
   printf("Area: %.2f KM²\n", area2);
   printf("Densidade: %.2f Hab/KM²\n", populacaodensidade2);
+
+  resultado1 = população1 > população2;
+  resultado2 = pontosturisticos1 > pontosturisticos2;
+  resultado3 = pib1 > pib2;
+  resultado4 = pibcapital1 > pibcapital2;
+  resultado5 = area1 > area2;
+  resultado6 = populacaodensidade1 < populacaodensidade2;
+  resultado7 = area1 * população1 > area2 * população2;
+
+  printf("**Regra**\n");
+  printf("****O numero 1 representa a carta 1, ja o numero 0 representa a carta 2****\n");
+
+  printf("****Pontos ganhos****\n");
+
+  printf("Resultado População: %i\n", população1 > população2);
+  printf("Resultado Pontosturisticos: %i\n", pontosturisticos1 > pontosturisticos2);
+  printf("Resultado Pib: %i\n", pib1 > pib2);
+  printf("Resultado Capital: %i\n", pibcapital1 > pibcapital2);
+  printf("Resultado Area: %i\n", area1 > area2);
+  printf("Resultado Densidade: %i\n", populacaodensidade1 < populacaodensidade2);
+  printf("Resultado Super Poder: %i\n", area1 * população1 > area2 * população2);
+
+  printf("***VENCEDOR***\n");
+
+  printf("Resultado final: %i\n", resultado1 + resultado2 + resultado3 + resultado4 + resultado5 + resultado6 + resultado7 >= 4);
   
 return 0;
 } 
