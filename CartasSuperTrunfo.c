@@ -28,97 +28,83 @@ int main() {
 
   int resultado1, resultado2, resultado3, resultado4, resultado5, resultado6, resultado7;
 
-  printf("**Digite os dados da primeira carta**\n");
+  printf("\n**Digite os dados da primeira carta**\n");
   
-  printf("digite o codigo da sua carta: \n");
+  printf("\ndigite o codigo da sua carta: ");
   scanf("%s", &codigo1);
-  printf("codigo da sua carta é: %s\n", codigo1);
 
-  printf("digite o nome do seu estado: \n");
+  printf("\ndigite o nome do seu estado: ");
   scanf("%s", &estado1);
-  printf("o seu estado é: %s\n", estado1);
 
-  printf("digite o nome da sua cidade: \n");
+  printf("\ndigite o nome da sua cidade: ");
   scanf("%s", &cidade1);
-  printf("o nome da sua cidade é: %s\n", cidade1);
 
-  printf("digite a quantidade de pessoas na sua população: \n");
+  printf("\ndigite a quantidade de pessoas na sua população: ");
   scanf("%d", &população1);
-  printf("Sua população é: %d\n", população1);
 
-  printf("digite os seus pontosturisticos: \n");
+  printf("\ndigite os seus pontosturisticos: ");
   scanf("%i", &pontosturisticos1);
-  printf("seus pontos turisticos são: %i\n", pontosturisticos1);
 
-  printf("digite seu pib: \n");
+  printf("\ndigite seu pib: ");
   scanf("%f", &pib1);
-  printf("seu pib é: %.f\n", pib1);
 
-  printf("digite a sua area em KM²: \n");
+  printf("\ndigite a sua area em KM²: ");
   scanf("%f", &area1);
-  printf("sua area é: %.f\n", area1);
 
   populacaodensidade1 = ( população1 + area1) / 2;
   pibcapital1 = ( população1 + pib1) / 2;
 
-  printf("**Digite os dados da segunda carta**\n");
+  printf("\n**Digite os dados da segunda carta**\n");
 
-  printf("digite o codigo da sua carta: \n");
+  printf("\ndigite o codigo da sua carta: ");
   scanf("%s", &codigo2);
-  printf("codigo da sua carta é: %s\n", codigo2);
 
-  printf("digite o nome do seu estado: \n");
+  printf("\ndigite o nome do seu estado: ");
   scanf("%s", &estado2);
-  printf("o seu estado é: %s\n", estado2);
 
-  printf("digite o nome da sua cidade: \n");
+  printf("\ndigite o nome da sua cidade: ");
   scanf("%s", &cidade2);
-  printf("o nome da sua cidade é: %s\n", cidade2);
 
-  printf("digite a quantidade de pessoas na sua população: \n");
+  printf("\ndigite a quantidade de pessoas na sua população: ");
   scanf("%d", &população2);
-  printf("Sua população é: %d\n", população2);
 
-  printf("digite os seus pontosturisticos: \n");
+  printf("\ndigite os seus pontosturisticos: ");
   scanf("%i", &pontosturisticos2);
-  printf("seus pontos turisticos são: %i\n", pontosturisticos2);
 
-  printf("digite seu pib: \n");
+  printf("\ndigite seu pib: ");
   scanf("%f", &pib2);
-  printf("seu pib é: %.f\n", pib2);
 
-  printf("digite a sua area em KM²: \n");
+  printf("\ndigite a sua area em KM²: ");
   scanf("%f", &area2);
-  printf("sua area é: %.f\n", area2);
 
   populacaodensidade2 = ( população2 + area2) / 2;
   pibcapital2 = ( população2 + pib2) / 2;
   
-  printf("***Cartas Super Trunfo***\n");
+  printf("\n***Cartas Super Trunfo***\n");
 
-  printf("**Carta 1**\n");
+  printf("\n**Carta 1**\n");
 
-  printf("Estado: %s\n", estado1);
-  printf("Codigo: %s\n", codigo1);
-  printf("Cidade: %s\n", cidade1);
-  printf("População: %d\n", população1);
-  printf("Pontosturisticos: %i\n", pontosturisticos1);
-  printf("Pib: %.2f Bilhões\n", pib1);
-  printf("Capital: %.2f Bilhões\n", pibcapital1);
-  printf("Area: %.2f KM²\n", area1);
-  printf("Densidade: %.2f Hab/KM²\n", populacaodensidade1);
+  printf("\nEstado: %s\n", estado1);
+  printf("\nCodigo: %s\n", codigo1);
+  printf("\nCidade: %s\n", cidade1);
+  printf("\nPopulação: %d\n", população1);
+  printf("\nPontosturisticos: %i\n", pontosturisticos1);
+  printf("\nPib: %.2f Bilhões\n", pib1);
+  printf("\nCapital: %.2f Bilhões\n", pibcapital1);
+  printf("\nArea: %.2f KM²\n", area1);
+  printf("\nDensidade: %.2f Hab/KM²\n", populacaodensidade1);
 
-  printf("**Carta 2**\n");
+  printf("\n**Carta 2**\n");
 
-  printf("Estado: %s\n", estado2);
-  printf("Codigo: %s\n", codigo2);
-  printf("Cidade: %s\n", cidade2);
-  printf("População: %d\n", população2);
-  printf("Pontosturisticos: %i\n", pontosturisticos2);
-  printf("Pib: %.2f Bilhões\n", pib2);
-  printf("Capital: %.2f Bilhões\n", pibcapital2);
-  printf("Area: %.2f KM²\n", area2);
-  printf("Densidade: %.2f Hab/KM²\n", populacaodensidade2);
+  printf("\nEstado: %s\n", estado2);
+  printf("\nCodigo: %s\n", codigo2);
+  printf("\nCidade: %s\n", cidade2);
+  printf("\nPopulação: %d\n", população2);
+  printf("\nPontosturisticos: %i\n", pontosturisticos2);
+  printf("\nPib: %.2f Bilhões\n", pib2);
+  printf("\nCapital: %.2f Bilhões\n", pibcapital2);
+  printf("\nArea: %.2f KM²\n", area2);
+  printf("\nDensidade: %.2f Hab/KM²\n", populacaodensidade2);
 
   resultado1 = população1 > população2;
   resultado2 = pontosturisticos1 > pontosturisticos2;
@@ -128,22 +114,22 @@ int main() {
   resultado6 = populacaodensidade1 < populacaodensidade2;
   resultado7 = area1 * população1 > area2 * população2;
 
-  printf("**Regra**\n");
-  printf("****O numero 1 representa a carta 1, ja o numero 0 representa a carta 2****\n");
+  printf("\n**Regra**\n");
+  printf("\n****O numero 1 representa a carta 1, ja o numero 0 representa a carta 2****\n");
 
-  printf("****Pontos ganhos****\n");
+  printf("\n****Pontos ganhos****\n");
 
-  printf("Resultado População: %i\n", população1 > população2);
-  printf("Resultado Pontosturisticos: %i\n", pontosturisticos1 > pontosturisticos2);
-  printf("Resultado Pib: %i\n", pib1 > pib2);
-  printf("Resultado Capital: %i\n", pibcapital1 > pibcapital2);
-  printf("Resultado Area: %i\n", area1 > area2);
-  printf("Resultado Densidade: %i\n", populacaodensidade1 < populacaodensidade2);
-  printf("Resultado Super Poder: %i\n", area1 * população1 > area2 * população2);
+  printf("\nResultado População: %i\n", população1 > população2);
+  printf("\nResultado Pontosturisticos: %i\n", pontosturisticos1 > pontosturisticos2);
+  printf("\nResultado Pib: %i\n", pib1 > pib2);
+  printf("\nResultado Capital: %i\n", pibcapital1 > pibcapital2);
+  printf("\nResultado Area: %i\n", area1 > area2);
+  printf("\nResultado Densidade: %i\n", populacaodensidade1 < populacaodensidade2);
+  printf("\nResultado Super Poder: %i\n", area1 * população1 > area2 * população2);
 
-  printf("***VENCEDOR***\n");
+  printf("\n***VENCEDOR***\n");
 
-  printf("Resultado final: %i\n", resultado1 + resultado2 + resultado3 + resultado4 + resultado5 + resultado6 + resultado7 >= 4);
+  printf("\nResultado final: %i", resultado1 + resultado2 + resultado3 + resultado4 + resultado5 + resultado6 + resultado7 >= 4);
   
 return 0;
 } 
