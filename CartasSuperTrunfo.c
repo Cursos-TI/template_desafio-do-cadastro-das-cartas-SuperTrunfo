@@ -16,49 +16,36 @@ int main() {
   int pontos;
 
   // Área para entrada de dados
-  printf("Carta1:\n");
-
+  printf("Carta 1:\n");
   printf("Digite o estado: ");
   scanf("%s", Estado);
-  
   printf("Digite o código: ");
   scanf("%s", Codigo);
-  
   printf("Digite a cidade: ");
   scanf("%s", Cidade);
-  
   printf("Digite a população: ");
   scanf("%d", &Populacao);
-  
   printf("Digite a área: ");
   scanf("%f", &Area);
-  
   printf("Digite o PIB: ");
   scanf("%f", &pib);
-
   printf("Digite o número de pontos turísticos: ");
   scanf("%d", &pontos);
 
-  printf("\n\nCarta2:\n");
 
+  printf("\n\nCarta 2:\n");
   printf("Digite o estado: ");
   scanf("%s", Estado);
-  
   printf("Digite o código: ");
   scanf("%s", Codigo);
-  
   printf("Digite a cidade: ");
   scanf("%s", Cidade);
-  
   printf("Digite a população: ");
   scanf("%d", &Populacao);
-  
   printf("Digite a área: ");
   scanf("%f", &Area);
-  
   printf("Digite o PIB: ");
   scanf("%f", &pib);
-
   printf("Digite o número de pontos turísticos: ");
   scanf("%d", &pontos);
 
@@ -71,18 +58,22 @@ int main() {
   printf("Código: %s\n", Codigo);
   printf("Cidade: %s\n", Cidade);
   printf("População: %d\n", Populacao);
-  printf("Área: %.2f\n", Area);
-  printf("PIB: %.2f\n", pib);
+  printf("Área: %.2f Km²\n", Area);
+  printf("PIB: %.2f bilhões de reais\n", pib);
   printf("Pontos turísticos: %d\n\n", pontos);
+  printf("Densidade Populacional: %.2f habitantes por Km²\n", Populacao / Area);
+  printf("PIB per Capita: %.2f reais\n", pib / Populacao);
 
-  printf("Carta 2:\n");
+  printf("\n\nCarta 2:\n");
   printf("Estado: %s\n", Estado);
   printf("Código: %s\n", Codigo);
   printf("Cidade: %s\n", Cidade);
   printf("População: %d\n", Populacao);
-  printf("Área: %.2f\n", Area);
-  printf("PIB: %.2f\n", pib);
+  printf("Área: %.2f Km²\n", Area);
+  printf("PIB: %.2f bilhões de reais\n", pib);
   printf("Pontos turísticos: %d\n", pontos);
+  printf("Densidade Populacional: %.2f habitantes por Km²\n", Populacao / Area);
+  printf("PIB per Capita: %.2f reais\n", pib / Populacao);
 
 return 0;
 } 
