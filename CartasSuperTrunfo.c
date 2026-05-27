@@ -57,9 +57,6 @@ int main() {
   printf("Digite o número de pontos turísticos: ");
   scanf("%d", &pontos2);
 
-
-  
-
   // Área para exibição dos dados da cidade
   printf("\n\nCarta 1:\n");
   printf("Estado: %s\n", Estado1);
@@ -83,5 +80,70 @@ int main() {
   printf("Densidade Populacional: %.2f habitantes por Km²\n", Populacao2 / Area2);
   printf("PIB per Capita: %.2f reais\n", pib2 / Populacao2);
 
+  // COMPARAÇÃO DAS CARTAS
+  printf("\n\nComparação das Cartas:\n");
+
+  printf("População: ");
+  if (Populacao1 > Populacao2) {
+    printf("Carta 1 vence\n");
+  } else if (Populacao1 < Populacao2) {
+    printf("Carta 2 vence\n");
+  } else {
+    printf("Empate\n");
+  }
+
+  printf("Área: ");
+  if (Area1 > Area2) {
+    printf("Carta 1 vence\n");
+  } else if (Area1 < Area2) {
+    printf("Carta 2 vence\n");
+  } else {
+    printf("Empate\n");
+  }
+
+  printf("PIB: ");
+  if (pib1 > pib2) {
+    printf("Carta 1 vence\n");
+  } else if (pib1 < pib2) {
+    printf("Carta 2 vence\n");
+  } else {
+    printf("Empate\n");
+  }
+
+  printf("Pontos turísticos: ");
+  if (pontos1 > pontos2) {
+    printf("Carta 1 vence\n");
+  } else if (pontos1 < pontos2) {
+    printf("Carta 2 vence\n");
+  } else {
+    printf("Empate\n");
+  }
+
+  printf("Densidade Populacional: ");
+  if ((Populacao1 / Area1) > (Populacao2 / Area2)) {
+    printf("Carta 2 vence\n");
+  } else if ((Populacao1 / Area1) < (Populacao2 / Area2)) {
+    printf("Carta 1 vence\n");
+  } else {
+    printf("Empate\n");
+  }
+
+  printf("PIB per Capita: ");
+  if ((pib1 / Populacao1) > (pib2 / Populacao2)) {
+    printf("Carta 1 vence\n");
+  } else if ((pib1 / Populacao1) < (pib2 / Populacao2)) {
+    printf("Carta 2 vence\n");
+  } else {
+    printf("Empate\n");
+  }
+
+  printf("Super Trunfo: ");
+  if((Populacao1+Area1+pib1+pontos1+(pib1/Populacao1)-(Populacao1/Area1)) > (Populacao2+Area2+pib2+pontos2+(pib2/Populacao2)-(Populacao2/Area2))) {
+    printf("Carta 1 é o Super Trunfo!\n");
+  } else if((Populacao1+Area1+pib1+pontos1+(pib1/Populacao1)-(Populacao1/Area1)) < (Populacao2+Area2+pib2+pontos2+(pib2/Populacao2)-(Populacao2/Area2))) {
+    printf("Carta 2 é o Super Trunfo!\n");
+  } else {
+    printf("Empate\n");
+  }
 return 0;
 } 
