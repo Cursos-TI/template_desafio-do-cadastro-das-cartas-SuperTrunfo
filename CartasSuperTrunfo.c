@@ -11,7 +11,7 @@
 #define BLUE "\x1b[34m"
 #define RESET "\x1b[0m"
 
-//Card struct
+//Card struct definition
 typedef struct {
 	char	state;
 	char	code[5];
@@ -58,6 +58,9 @@ static int error_message(const char *message)
  */
 static void print_cards(t_card *cards, size_t size)
 {
+	if (!cards || !size) // There is nothing to do in this case, so we return early to avoid issues
+		return;
+
 	draw_line('-', 50);
 	const char* messages[10] = {
 		BLUE " Estado:\t\t\t" RESET " %c\n",
@@ -71,7 +74,6 @@ static void print_cards(t_card *cards, size_t size)
 		BLUE " PIB per Capita: \t\t" RESET " %.2f reais\n",
 		BLUE " Super Poder: \t\t\t" RESET " %.2f\n"
 	};
-
 
 	for (size_t i = 0; i < size; i++) {
 		printf(GREEN "\t\tCarta %zu\n" RESET, i + 1);
@@ -96,6 +98,9 @@ static void print_cards(t_card *cards, size_t size)
  * @param card A pointer to the card for which the values will be calculated.
  */
 static void calculated_values(t_card *card){
+	if (!card) // There is nothing to do in this case, so we return early to avoid issues
+		return;
+
 	//Protection division by zero
 	float density = (card->area == 0) ? 0.0f : (float)(card->population / card->area); // Calculate population density with protection against division by zero
 	float pib = (card->population == 0) ? 0.0f : (float)(card->pib / card->population); // Calculate PIB per capita with protection against division by zero
@@ -105,6 +110,9 @@ static void calculated_values(t_card *card){
 }
 
 static void calculate_super_power(t_card *card) {
+	if (!card) // There is nothing to do in this case, so we return early to avoid issues
+		return;
+
 	float density = (card->population_density == 0) ? 1.0f : card->population_density; // Avoid division by zero for population density
 	float inverse_density = 1.0f / density; // Inverse of population density
 	float sum = 
@@ -119,10 +127,14 @@ static void calculate_super_power(t_card *card) {
 }
 
 /**
- * Prompts the user to input the details for two cards and stores them in the provided array.
- * @param card An array of two t_card structures where the inputted card details will be stored.
+ * Prompts the user to input the details for cards and stores them in the provided array.
+ * @param card An array of t_card structures where the inputted card details will be stored.
+ * @param size The number of cards to input.
+ * @return Returns 0 on success, or 1 if there was an error reading the input.
  */
 static int add_card(t_card *card, size_t size) {
+	if (!card || !size)  // There is nothing to do in this case, so we return early to avoid issues
+		return;
 
 	//Variables
 	const char* messages[7] = {
@@ -172,9 +184,16 @@ static int add_card(t_card *card, size_t size) {
 	return (0);
 }
 
+/**
+ * Compares two cards and determines the winner for each attribute, printing the results of the battle.
+ * @param card1 A pointer to the first card.
+ * @param card2 A pointer to the second card.
+ */
 static void battle(t_card *card1, t_card *card2) {
-	
-	const char*	messages[7] = {
+	if (!card1 || !card2) // There is nothing to do in this case, so we return early to avoid issues
+		return;
+
+	const char*	messages[7] = { // Messages for each attribute comparison
 		BLUE " População: " RESET "Carta %d " BLUE "venceu (%d)\n" RESET,
 		BLUE " Área: " RESET "Carta %d " BLUE "venceu (%d)\n" RESET,
 		BLUE " PIB: " RESET "Carta %d " BLUE "venceu (%d)\n" RESET,
