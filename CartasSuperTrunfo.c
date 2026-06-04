@@ -20,6 +20,10 @@ typedef struct {
 	float	area;
 	float	pib;
 	int		tourist_points;
+
+	// Nivel Aventureiro
+	float	population_density;
+	float	pib_per_capita;
 }	t_card;
 
 /**
@@ -36,6 +40,13 @@ static void draw_line(char c, size_t size)
 	printf("\n");
 }
 
+static int error_message(const char *message)
+{
+	if (message)
+		printf(RED "%s\n" RESET, message);
+	return (1); // Return 1 to indicate an error occurred
+}
+
 /**
  * Prints the details of an array of cards.
  * @param cards The array of cards to print.
@@ -44,29 +55,53 @@ static void draw_line(char c, size_t size)
 static void print_cards(t_card *cards, size_t size)
 {
 	draw_line('-', 50);
+	const char* messages[9] = {
+		BLUE " Estado:\t\t\t" RESET " %c\n",
+		BLUE " Código:\t\t\t" RESET " %s\n",
+		BLUE " Cidade: \t\t\t" RESET " %s\n",
+		BLUE " População:\t\t\t" RESET " %d\n",
+		BLUE " Área:\t\t\t\t" RESET " %.2f km²\n",
+		BLUE " PIB:\t\t\t\t" RESET " %.2f bilhões de reais\n",
+		BLUE " Número de pontos turísticos: \t" RESET " %d\n",
+		BLUE " Densidade Populacional: \t" RESET " %.2f hab/km²\n",
+		BLUE " PIB per Capita: \t\t" RESET " %.2f reais\n"
+	};
+
 
 	for (size_t i = 0; i < size; i++) {
 		printf(GREEN "\t\tCarta %zu\n" RESET, i + 1);
-		printf(BLUE " Estado:\t\t\t" RESET "%c\n", cards[i].state);
-		printf(BLUE " Código:\t\t\t" RESET "%s\n", cards[i].code);
-		printf(BLUE " Cidade: \t\t\t" RESET "%s\n", cards[i].city);
-		printf(BLUE " População:\t\t\t" RESET "%d\n", cards[i].population);
-		printf(BLUE " Área:\t\t\t\t" RESET "%.2f km²\n", cards[i].area);
-		printf(BLUE " PIB:\t\t\t\t" RESET "%.2f bilhões de reais\n", cards[i].pib);
-		printf(BLUE " Número de pontos turísticos: \t" RESET "%d\n", cards[i].tourist_points);
+
+		printf(messages[0], cards[i].state);
+		printf(messages[1], cards[i].code);
+		printf(messages[2], cards[i].city);
+		printf(messages[3], cards[i].population);
+		printf(messages[4], cards[i].area);
+		printf(messages[5], cards[i].pib);
+		printf(messages[6], cards[i].tourist_points);
+		printf(messages[7], cards[i].population_density);
+		printf(messages[8], cards[i].pib_per_capita);
 
 		draw_line('-', 50); // Draw a line after each card for better readability
 	}
 }
 
 /**
+ * Calculates the data for the "Nivel Aventureiro" fields of a card, which include population density and PIB per capita.
+ * @param card A pointer to the card for which the values will be calculated.
+ */
+static void calculated_values(t_card *card){
+	card->population_density = (float)(card->population / card->area); // Calculate population density
+	card->pib_per_capita = (float)(card->pib / card->population); // Calculate PIB per capita
+}
+
+/**
  * Prompts the user to input the details for two cards and stores them in the provided array.
  * @param card An array of two t_card structures where the inputted card details will be stored.
  */
-static void add_card(t_card *card) {
+static int add_card(t_card *card, size_t size) {
 
 	//Variables
-	char* messages[7] = {
+	const char* messages[7] = {
 		BLUE " | Digite o estado da cidade(A - H): " RESET,
 		BLUE " | Digite o código da cidade(ex: A00): " RESET,
 		BLUE " | Digite o nome da cidade: " RESET,
@@ -75,62 +110,54 @@ static void add_card(t_card *card) {
 		BLUE " | Digite o PIB da cidade (em bilhões de reais): " RESET,
 		BLUE " | Digite o número de pontos turísticos da cidade: " RESET
 	};
+	char* formats[7] = { // formats for scanf
+		" %c", // space before %c to consume any leftover whitespace
+		" %s",
+		" %s",
+		" %d",
+		" %f",
+		" %f",
+		" %d"
+	};
 
-	// Adding first card
-	printf(GREEN "Adicionando a carta 1\n" RESET);
-	printf(messages[0]);
-	scanf(" %c", &card[0].state);
+	// Iterate over the number of cards and prompt the user for input for each card's fields
+	for (size_t i = 0; i < size; i++) {
+		void* inputs[7] = { // cast the addresses of the card fields for scanf
+			&card[i].state,
+			card[i].code,
+			card[i].city,
+			&card[i].population,
+			&card[i].area,
+			&card[i].pib,
+			&card[i].tourist_points
+		};
 
-	printf(messages[1]);
-	scanf("%s", card[0].code);
+		printf(YELLOW "\n\t\tCadastro da Carta %zu\n" RESET, i + 1);
+		for (size_t j = 0; j < 7; j++) { // loop through each field of the card and prompt for input
+			printf("%s", messages[j]);
+			if (scanf(formats[j], inputs[j]) != 1)
+				return (1); // Return 1 if scanf fails to read the expected input
+		}
 
-	printf(messages[2]);
-	scanf("%s", card[0].city);
+		// Nivel aventureiro
+		calculated_values(&card[i]);
+	}
 
-	printf(messages[3]);
-	scanf("%d", &card[0].population);
-	
-	printf(messages[4]);
-	scanf("%f", &card[0].area);
-	
-	printf(messages[5]);
-	scanf("%f", &card[0].pib);
-	
-	printf(messages[6]);
-	scanf("%d", &card[0].tourist_points);
-	
-	// Adding second card
-	printf(GREEN "Adicionando a carta 2\n" RESET);
-	printf(messages[0]);
-	scanf(" %c", &card[1].state);
-
-	printf(messages[1]);
-	scanf("%s", card[1].code);
-	
-	printf(messages[2]);
-	scanf("%s", card[1].city);
-	
-	printf(messages[3]);
-	scanf("%d", &card[1].population);
-
-	printf(messages[4]);
-	scanf("%f", &card[1].area);
-	
-	printf(messages[5]);
-	scanf("%f", &card[1].pib);
-
-	printf(messages[6]);
-	scanf("%d", &card[1].tourist_points);
+	draw_line('-', 50); // Draw a line after inputting the cards for better readability
+	return (0);
 }
 
 int main(void)
 {
 	// Variables
-	t_card cards[2];
+	const size_t size = 2;
+	t_card cards[size];
 
 	// Logic to add and print cards
-	add_card(cards);
-	print_cards(cards, 2);
+	if (add_card(cards, size))
+		return error_message("Erro ao ler os dados. Por favor, tente novamente.");
+
+	print_cards(cards, size);
 
 	return (0);
 }
