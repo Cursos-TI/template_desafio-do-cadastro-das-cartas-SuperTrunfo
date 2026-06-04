@@ -16,7 +16,8 @@ typedef struct {
 	char	state;
 	char	code[5];
 	char	city[50];
-	int		population;
+	// int		population; Population in Nivel Novato e Avancado
+	unsigned long int population; // Nivel mestre
 	float	area;
 	float	pib;
 	int		tourist_points;
@@ -24,6 +25,9 @@ typedef struct {
 	// Nivel Aventureiro
 	float	population_density;
 	float	pib_per_capita;
+
+	// Nivel Mestre
+	float	super_power;
 }	t_card;
 
 /**
@@ -55,16 +59,17 @@ static int error_message(const char *message)
 static void print_cards(t_card *cards, size_t size)
 {
 	draw_line('-', 50);
-	const char* messages[9] = {
+	const char* messages[10] = {
 		BLUE " Estado:\t\t\t" RESET " %c\n",
 		BLUE " Código:\t\t\t" RESET " %s\n",
 		BLUE " Cidade: \t\t\t" RESET " %s\n",
-		BLUE " População:\t\t\t" RESET " %d\n",
+		BLUE " População:\t\t\t" RESET " %lu\n",
 		BLUE " Área:\t\t\t\t" RESET " %.2f km²\n",
 		BLUE " PIB:\t\t\t\t" RESET " %.2f bilhões de reais\n",
 		BLUE " Número de pontos turísticos: \t" RESET " %d\n",
 		BLUE " Densidade Populacional: \t" RESET " %.2f hab/km²\n",
-		BLUE " PIB per Capita: \t\t" RESET " %.2f reais\n"
+		BLUE " PIB per Capita: \t\t" RESET " %.2f reais\n",
+		BLUE " Super Poder: \t\t\t" RESET " %.2f\n"
 	};
 
 
@@ -80,6 +85,7 @@ static void print_cards(t_card *cards, size_t size)
 		printf(messages[6], cards[i].tourist_points);
 		printf(messages[7], cards[i].population_density);
 		printf(messages[8], cards[i].pib_per_capita);
+		printf(messages[9], cards[i].super_power);
 
 		draw_line('-', 50); // Draw a line after each card for better readability
 	}
@@ -90,8 +96,26 @@ static void print_cards(t_card *cards, size_t size)
  * @param card A pointer to the card for which the values will be calculated.
  */
 static void calculated_values(t_card *card){
-	card->population_density = (float)(card->population / card->area); // Calculate population density
-	card->pib_per_capita = (float)(card->pib / card->population); // Calculate PIB per capita
+	//Protection division by zero
+	float density = (card->area == 0) ? 0.0f : (float)(card->population / card->area); // Calculate population density with protection against division by zero
+	float pib = (card->population == 0) ? 0.0f : (float)(card->pib / card->population); // Calculate PIB per capita with protection against division by zero
+
+	card->population_density = density;
+	card->pib_per_capita = pib;
+}
+
+static void calculate_super_power(t_card *card) {
+	float density = (card->population_density == 0) ? 1.0f : card->population_density; // Avoid division by zero for population density
+	float inverse_density = 1.0f / density; // Inverse of population density
+	float sum = 
+		inverse_density + 
+		card->population +
+		card->area +
+		card->pib +
+		card->tourist_points +
+		card->pib_per_capita;
+	
+	card->super_power = sum;
 }
 
 /**
@@ -114,7 +138,7 @@ static int add_card(t_card *card, size_t size) {
 		" %c", // space before %c to consume any leftover whitespace
 		" %s",
 		" %s",
-		" %d",
+		" %lu",
 		" %f",
 		" %f",
 		" %d"
@@ -141,10 +165,58 @@ static int add_card(t_card *card, size_t size) {
 
 		// Nivel aventureiro
 		calculated_values(&card[i]);
+		calculate_super_power(&card[i]);
 	}
 
 	draw_line('-', 50); // Draw a line after inputting the cards for better readability
 	return (0);
+}
+
+static void battle(t_card *card1, t_card *card2) {
+	
+	const char*	messages[7] = {
+		BLUE " População: " RESET "Carta %d " BLUE "venceu (%d)\n" RESET,
+		BLUE " Área: " RESET "Carta %d " BLUE "venceu (%d)\n" RESET,
+		BLUE " PIB: " RESET "Carta %d " BLUE "venceu (%d)\n" RESET,
+		BLUE " Pontos turísticos: " RESET "Carta %d " BLUE "venceu (%d)\n" RESET,
+		BLUE " Densidade Populacional: " RESET "Carta %d " BLUE "venceu (%d)\n" RESET,
+		BLUE " PIB per Capita: " RESET "Carta %d " BLUE "venceu (%d)\n" RESET,
+		BLUE " Super Poder: " RESET "Carta %d " BLUE "venceu (%d)\n" RESET
+	};
+
+	// Determine the winner
+	draw_line('=', 50);
+	printf(GREEN "\t\tBatalha entre %s e %s\n" RESET, card1->city, card2->city);
+
+	// Population
+	int population = card1->population > card2->population;
+	printf(messages[0], population ? 1 : 2, population);
+
+	// Area
+	int area = card1->area > card2->area;
+	printf(messages[1], area ? 1 : 2, area);
+
+	// PIB
+	int pib = card1->pib > card2->pib;
+	printf(messages[2], pib ? 1 : 2, pib);
+
+	// Tourist points
+	int tourist_points = card1->tourist_points > card2->tourist_points;
+	printf(messages[3], tourist_points ? 1 : 2, tourist_points);
+
+	// Population density
+	int population_density = card1->population_density < card2->population_density;
+	printf(messages[4], population_density ? 1 : 2, population_density);
+
+	// PIB per capita
+	int pib_per_capita = card1->pib_per_capita > card2->pib_per_capita;
+	printf(messages[5], pib_per_capita ? 1 : 2, pib_per_capita);
+
+	// Super power
+	int super_power = card1->super_power > card2->super_power;
+	printf(messages[6], super_power ? 1 : 2, super_power);
+	
+	draw_line('=', 50); // Draw a line after the battle results for better readability
 }
 
 int main(void)
@@ -157,7 +229,12 @@ int main(void)
 	if (add_card(cards, size))
 		return error_message("Erro ao ler os dados. Por favor, tente novamente.");
 
+	// Print the details of the cards
+	printf(GREEN "\n\t\tCartas Cadastradas\n" RESET);
 	print_cards(cards, size);
+
+	//Battle logic
+	battle(&cards[0], &cards[1]);
 
 	return (0);
 }
