@@ -1,53 +1,62 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 int main() {
-  int opcao;
-  float nota1, nota2, media;
+    int numeroJogador, numeroComputador, resultado;
+    char tipoComparacao;
 
-  // Exibição do menu
-  printf("Menu de Gerenciamento de Estudantes\n");
-  printf("1. Calcular Média\n");
-  printf("2. Determinar Status\n");
-  printf("3. Sair\n");
-  printf("Escolha uma opção: \n");
-  scanf("%d", &opcao);
+    // Gerar número aleatório 
+    srand(time(0));
+    numeroComputador = rand() % 100 + 1; // Número entre 1 e 100
 
-  switch (opcao) {
-    case 1:
-      printf("Calcular a Média\n");
-      printf("Digite a primeira nota\n");
-      scanf("%f",&nota1);
-      printf("Digite a segunda nota\n");
-      scanf("%f", &nota2);
-      //Testar a condição se a nota é >= 0 e <= 10
-      if ( (nota1 >= 0 && nota1 <= 10) && (nota2 >= 0 && nota2 <= 10) ){
-        media = (nota1 + nota2) / 2;
-        printf("A média é %.2f\n", media);
-      } else {
-        printf("Entrada com valores errados de nota");  
-      }
-      break;
-    case 2:
-    printf("Determinar status\n");
-    printf("Entrar com a média: ");
-    scanf("%f", &media);
-    // media >= 5 ? printf("Aprovado!\n") : printf("Reprovado!\n");
+    // Início do jogo
+    printf("Bem-vindo ao Jogo Maior, Menor ou Igual!\n");
+    printf("Você deve escolher um número e o tipo de comparação.\n");
+    printf("M. Maior\n");
+    printf("N. Menor\n");
+    printf("I. Igual\n");
 
-    if (media >= 7)
+    printf("Escolha a comparação: ");
+    scanf(" %c", &tipoComparacao);
+
+    printf("Digite seu número (entre 1 e 100): ");
+    scanf("%d", &numeroJogador);
+
+    // Exibir número do computador
+    printf("O número do computador é: %d\n", numeroComputador);
+
+    switch (tipoComparacao)
     {
-        printf("Aprovado!\n");
-    }   else if (media >= 5)
-    {
-        printf("Recuperação!\n");
-    }   else {
-        printf("Reprovado!\n");
+    case 'M':
+    case 'm':
+        printf("Você escolheu a opção maior!\n");
+        resultado = numeroJogador > numeroComputador ? 1 : 0;
+        break;
+    case 'N':
+    case 'n':
+        printf("Você escolheu a opção menor!\n");
+        resultado = numeroJogador < numeroComputador ? 1 : 0;
+        break;
+    case 'I':
+    case 'i':
+        printf("Você escolheu a opção igual!\n");
+        resultado = numeroJogador == numeroComputador ? 1 : 0;
+        break;
+    default:
+        printf("Opção de jogo inválida!\n");
+        break;
     }
+
+    printf("O número do computador é: %d e o do jogador é: %d\n", numeroComputador, numeroJogador);
+
+    if (resultado == 1)
+    {
+        printf("Parabéns, você venceu!\n");
+    } else {
+        printf("Infelizmente, você perdeu!\n");
     
+    }
 
-  return 0;
 }
-
-
-
-
 
