@@ -1,62 +1,174 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 
 int main() {
-    int numeroJogador, numeroComputador, resultado;
-    char tipoComparacao;
 
-    // Gerar número aleatório 
-    srand(time(0));
-    numeroComputador = rand() % 100 + 1; // Número entre 1 e 100
+    // Carta 1 - Brasil
+    char pais1[] = "Brasil";
+    int populacao1 = 214;
+    float area1 = 8515.7;
+    float pib1 = 2174.0;
+    int pontosTuristicos1 = 25.1;
+    float densidade1 = 15.1;
 
-    // Início do jogo
-    printf("Bem-vindo ao Jogo Maior, Menor ou Igual!\n");
-    printf("Você deve escolher um número e o tipo de comparação.\n");
-    printf("M. Maior\n");
-    printf("N. Menor\n");
-    printf("I. Igual\n");
+    // Carta 2 - Argentina
+    char pais2[] = "Argentina";
+    int populacao2 = 46;
+    float area2 = 2780.4;
+    float pib2 = 633.0;
+    int pontosTuristicos2 = 18;
+    float densidade2 = 16.5;
 
-    printf("Escolha a comparação: ");
-    scanf(" %c", &tipoComparacao);
+    int atributo1, atributo2;
 
-    printf("Digite seu número (entre 1 e 100): ");
-    scanf("%d", &numeroJogador);
+    printf("==== SUPER TRUNFO ====\n\n");
 
-    // Exibir número do computador
-    printf("O número do computador é: %d\n", numeroComputador);
+    printf("Escolha o PRIMEIRO atributo:\n");
+    printf("1 - Populacao\n");
+    printf("2 - Area\n");
+    printf("3 - PIB\n");
+    printf("4 - PontosTuristicos\n");
+    printf("5 - Densidade Demografica\n");
+    scanf("%d", &atributo1);
 
-    switch (tipoComparacao)
-    {
-    case 'M':
-    case 'm':
-        printf("Você escolheu a opção maior!\n");
-        resultado = numeroJogador > numeroComputador ? 1 : 0;
-        break;
-    case 'N':
-    case 'n':
-        printf("Você escolheu a opção menor!\n");
-        resultado = numeroJogador < numeroComputador ? 1 : 0;
-        break;
-    case 'I':
-    case 'i':
-        printf("Você escolheu a opção igual!\n");
-        resultado = numeroJogador == numeroComputador ? 1 : 0;
-        break;
-    default:
-        printf("Opção de jogo inválida!\n");
-        break;
+    printf("\nEscolha o SEGUNDO atributo:\n");
+
+    if (atributo1 != 1)
+        printf("1 - Populacao\n");
+
+    if (atributo1 != 2)
+        printf("2 - Area\n");
+
+    if (atributo1 != 3)
+        printf("3 - PIB\n");
+
+    if (atributo1 != 4)
+        printf("4 - Pontos Turisticos\n");
+
+    if (atributo1 != 5)
+        printf("5 - Densidade Demografica\n");
+
+    scanf("%d", &atributo2);
+
+    if (atributo1 == atributo2) {
+        printf("\nErro: voce nao pode escolher o memso atributo duas vezes!\n");
+        return 0;
     }
 
-    printf("O número do computador é: %d e o do jogador é: %d\n", numeroComputador, numeroJogador);
+    float valor1Carta1, valor1Carta2;
+    float valor2Carta1, valor2Carta2;
 
-    if (resultado == 1)
-    {
-        printf("Parabéns, você venceu!\n");
-    } else {
-        printf("Infelizmente, você perdeu!\n");
+    char nomeAtributo1[30];
+    char nomeAtributo2[30];
+
+    // Primeiro atributo
+    switch (atributo1) {
+
+        case 1:
+            valor1Carta1 = populacao1;
+            valor1Carta2 = populacao2;
+            sprintf(nomeAtributo1, "Populacao");
+            break;
+        case 2:
+            valor1Carta1 = area1;
+            valor1Carta2 = area2;
+            sprintf(nomeAtributo1, "Area");
+            break;
+        case 3:
+            valor1Carta1 = pib1;
+            valor1Carta2 = pib2;
+            sprintf(nomeAtributo1, "PIB");
+            break;
+        case 4:
+            valor1Carta1 = pontosTuristicos1;
+            valor1Carta2 = pontosTuristicos2;
+            sprintf(nomeAtributo1, "Pontos Turisticos");
+            break;
+        case 5:
+            valor1Carta1 = densidade1;
+            valor1Carta2 = densidade2;
+            sprintf(nomeAtributo1, "Densidade Demografica");
+            break;
+        default:
+            printf("Opcao invalida!\n");
+            return 0;
+    }
+
+    // Segundo atributo
+    switch (atributo2) {
+
+        case 1:
+            valor2Carta1 = populacao1;
+            valor2Carta2 = populacao2;
+            sprintf(nomeAtributo2, "Populacao");
+            break;
+        case 2:
+            valor2Carta1 = area1;
+            valor2Carta2 = area2;
+            sprintf(nomeAtributo2, "Area");
+            break;
+        case 3:
+            valor2Carta1 = pib1;
+            valor2Carta2 = pib2;
+            sprintf(nomeAtributo2, "PIB");
+            break;
+        case 4:
+            valor2Carta1 = pontosTuristicos1;
+            valor2Carta2 = pontosTuristicos2;
+            sprintf(nomeAtributo2, "Pontos Turisticos");
+            break;
+        case 5:
+            valor2Carta1 = densidade1;
+            valor2Carta2 = densidade2;
+            sprintf(nomeAtributo2, "Densidade Demografica");
+            break;
+
+        default:
+            printf("Opcao invalida!\n");
+            return 0;
+    }
+
+    float soma1 = 0;
+    float soma2 = 0;
     
+    // Promeiro atributo
+    if (atributo1 == 5) {
+        soma1 += (1 / valor1Carta1);
+        soma2 += (1 / valor1Carta2);
+    } else {
+        soma1 += valor1Carta1;
+        soma2 += valor1Carta2;
     }
 
-}
+    // Segundo atributo
+    if (atributo2 == 5) {
+        soma1 += (1 / valor2Carta1);
+        soma2 += (1 / valor2Carta2);
+    } else {
+        soma1 += valor2Carta1;
+        soma2 += valor2Carta2;
+    }
 
+    printf("\n===== RESULTADO =====\n\n");
+
+    printf("Pais 1: %s\n", pais1);
+    printf("Pais 2: %s\n\n", pais2);
+
+    printf("%s\n", nomeAtributo1);
+    printf("%s %.2f\n", pais1, valor1Carta1);
+    printf("%s: %.2f\n\n", pais2, valor2Carta2);
+
+    printf("%s\n", nomeAtributo2);
+    printf("%s: %.2f\n", pais1, valor2Carta1);
+    printf("%s: %.2f\n\n", pais2, valor2Carta2);
+
+    printf("Soma %s: %.2f\n", pais1, soma1);
+    printf("Soma %s: %.2f\n\n", pais2, soma2);
+
+    printf("Vencedor: %s\n",
+           (soma1 > soma2) ? pais1 :
+           (soma2 > soma1) ? pais2 :
+           "Empate");
+
+    return 0;
+}
+    
