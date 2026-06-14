@@ -1,0 +1,29 @@
+#include <stdio.h>
+ 
+// Função genérica para entrada de dados
+void entradaDados() {
+    // código para a função entradaDados
+}
+ 
+// Função genérica para cálculo da média
+float calcularMedia() {
+    // código para a função calcularMedia
+}
+ 
+// Função genérica para exibir dados
+void exibirMedia() {
+    // código para a função exibirMedia
+}
+ 
+int main() {
+ 
+    entradaDados();
+    media = calcularMedia();
+    exibirMedia();
+ 
+    return 0;
+}
+//Com a modularidade, é fácil alterar as funções de entrada, processamento e saída de dados sem afetar o restante do código. Por exemplo, se você quiser alterar a maneira como os dados são coletados (entrada de dados) ou como os resultados são exibidos (saída de dados), você só precisa modificar as funções correspondentes. Além disso, as funções de entrada e saída podem ser reutilizadas em outros programas ou contextos, aumentando a eficiência do desenvolvimento.//
+
+//abstração:Permite focar os aspectos mais importantes de um problema, ignorando os detalhes irrelevantes. Isso é importante para lidar com a complexidade.
+Usando o exemplo do cálculo da média das temperaturas, em vez de se preocupar com os detalhes de como a entrada de dados é feita, você pode criar uma função entradaDados que abstrai esse processo. Assim, se precisar modificar a maneira como os dados são coletados, basta alterar essa função, mantendo o restante do código inalterado.//
